@@ -386,7 +386,8 @@ void update_game()
 	// Player/Enemy Collision
 	for (int i = 0; i < enemyCount; i++)
 	{
-		if (CheckCollisionRecs((Rectangle){ player.position.x, player.position.y, player.size.x, player.size.y}, (Rectangle){ enemies[i].position.x, enemies[i].position.y, enemies[i].size.x, enemies[i].size.y }))
+		if (CheckCollisionRecs((Rectangle){ player.position.x, player.position.y, player.size.x, player.size.y},
+			(Rectangle){ enemies[i].position.x, enemies[i].position.y, enemies[i].size.x, enemies[i].size.y }))
 			{
 				  gameOver = true; 
 			}
@@ -444,15 +445,18 @@ void draw_game()
 		if (gameOver)
 		{
 			// Draw game over text in center of screen
-			DrawText(GAME_OVER_TEXT, screenCenter.x - MeasureText(GAME_OVER_TEXT, GAME_OVER_TEXT_SIZE) / 2, screenCenter.y - GAME_OVER_TEXT_SIZE / 2, GAME_OVER_TEXT_SIZE, RED);
+			DrawText(GAME_OVER_TEXT, screenCenter.x - MeasureText(GAME_OVER_TEXT, GAME_OVER_TEXT_SIZE) / 2, screenCenter.y - GAME_OVER_TEXT_SIZE / 2,
+				GAME_OVER_TEXT_SIZE, RED);
 			EndDrawing();
 			return;
 		}
 		
 		if (victory)
 		{
-			DrawText(VICTORY_TEXT_1, screenCenter.x - MeasureText(VICTORY_TEXT_1, VICTORY_TEXT_SIZE) / 2, screenCenter.y - VICTORY_TEXT_SIZE / 2, VICTORY_TEXT_SIZE, GOLD);
-			DrawText(VICTORY_TEXT_2, screenCenter.x - MeasureText(VICTORY_TEXT_2, VICTORY_TEXT_SIZE) / 2, screenCenter.y + VICTORY_TEXT_SIZE / 2, VICTORY_TEXT_SIZE, GOLD);
+			DrawText(VICTORY_TEXT_1, screenCenter.x - MeasureText(VICTORY_TEXT_1, VICTORY_TEXT_SIZE) / 2, screenCenter.y - VICTORY_TEXT_SIZE / 2,
+				VICTORY_TEXT_SIZE, GOLD);
+			DrawText(VICTORY_TEXT_2, screenCenter.x - MeasureText(VICTORY_TEXT_2, VICTORY_TEXT_SIZE) / 2, screenCenter.y + VICTORY_TEXT_SIZE / 2,
+				VICTORY_TEXT_SIZE, GOLD);
 			EndDrawing();
 			return;
 		}
@@ -475,7 +479,8 @@ void draw_game()
 		//Draw bullets
 		for (int i = 0; i < bulletCount; i++)
 		{
-			DrawLineV(bullets[i].startPos, bullets[i].endPos, (Color){(unsigned char)GetRandomValue(0, 255), (unsigned char)GetRandomValue(0, 255), (unsigned char)GetRandomValue(0, 255), 255});
+			DrawLineV(bullets[i].startPos, bullets[i].endPos, (Color){(unsigned char)GetRandomValue(0, 255), (unsigned char)GetRandomValue(0, 255),
+				(unsigned char)GetRandomValue(0, 255), 255});
 		}
 	
 		// Draw Enemies
